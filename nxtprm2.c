@@ -6,6 +6,17 @@ int main()
 	int num,rem,next_prime=0,num1;
 	printf("Enter the number:\n");
 	scanf("%d",&num);
+	if(num<3)
+	{
+		if(num<2)
+		{
+			next_prime=3;
+		}
+		else
+		{
+			next_prime=3;
+		}
+	}
 	rem=num%6;
 	if(rem!=0)
 	{
