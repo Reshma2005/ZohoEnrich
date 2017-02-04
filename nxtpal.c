@@ -1,9 +1,11 @@
 #include<stdio.h>
 
+void check(int x,int *a,int max);
+
 int main()
 {
-	int num,a[10],i,j,max=0,m,l,r,palindrome;
 	
+	int num,a[10],i,j,max=0,m,l,r,palindrome=0;
 	printf("Enter the number:\n");
 	scanf("%d",&num);
 	
@@ -31,18 +33,7 @@ int main()
 			{
 				a[m]=0;
 				
-				for(i=m+1;i<max;i++)
-				{
-					if(a[i]==9)
-					{
-						a[i]=0;
-					}
-					else
-					{
-						a[i]++;
-						break;
-					}
-				}
+				check(m+1,a,max);
 			}
 		}
 	}
@@ -53,18 +44,7 @@ int main()
 		r=0;
 		if(a[m]<=a[m-1])
 		{
-			for(i=m;i<max;i++)
-				{
-					if(a[i]==9)
-					{
-						a[i]=0;
-					}
-					else
-					{
-						a[i]++;
-						break;
-					}
-				}
+			check(m,a,max);
 		}
 	}
 	
@@ -96,5 +76,22 @@ int main()
 	}
 	
 	return 0;
+}
+
+void check(int x,int *a,int max)
+{
+	int i;
+	for(i=x;i<max;i++)
+	{
+		if(a[i]==9)
+		{
+			a[i]=0;
+		}
+		else
+		{
+			a[i]++;
+			break;
+		}
+	}
 }
 
