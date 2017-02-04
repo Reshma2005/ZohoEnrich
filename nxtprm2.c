@@ -10,7 +10,7 @@ int main()
 	{
 		if(num<2)
 		{
-			next_prime=3;
+			next_prime=2;
 		}
 		else
 		{
