@@ -1,3 +1,16 @@
+/* Sort the elements in a given String 2D array. 
+
+i) The String array contains only the numbers. 
+ii) The array should be arranged based on numerical order. 
+iii) String to number conversion is not allowed 
+
+Ex: 
+I/P 
+Array: [ "1", "3", "11", "100", "19", "2", "5"] 
+
+O/P 
+Array: ["1", "2", "3", "5", "11", "19", "100"]*/
+
 #include<stdio.h>
 #include<string.h>
 
