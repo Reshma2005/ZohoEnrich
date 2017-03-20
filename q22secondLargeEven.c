@@ -8,14 +8,9 @@ output: 12*/
 
 #include<stdio.h>
 
-int main()
+void findSecondMaxEven(int *a,int n)
 {
-	int a[20],i,n,max1=-1,max2=-1,temp=-1;
-	scanf("%d",&n);
-	for(i=0;i<n;i++)
-	{
-		scanf("%d",(a+i));
-	}
+	int i,max1=-1,max2=-1,temp = -1;
 	for(i=1; i < n; i++)
 	{
 		if(a[i]%2 !=0)
@@ -51,14 +46,27 @@ int main()
 	if(max2 == -1)//If the array contains only odd numbers
 	{
 		printf("There is no even numbers\n");
-		return 0;
+		return;
 	}
 	if(max1 == max2)//if there is one only one even number or all the even numbers are same
 	{
 		printf("There is no second largest even number\n");
-		return 0;
+		return;
 	}
 	
 	printf("The second largest even number is: %d\n",max2);
+	
+}
+
+int main()
+{
+	int n,a[50],i;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",(a+i));
+	}
+	findSecondMaxEven(a,n);
 	return 0;
+	
 }
