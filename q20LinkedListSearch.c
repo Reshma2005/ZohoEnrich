@@ -1,5 +1,3 @@
-/*Search a number in a given linked list and print its index from head node.*/
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -39,7 +37,7 @@ void append(struct node **h)
 void search(struct node *h)
 {
 	struct node *new;
-	int key,count =0;	
+	int key,count =0,flag = 0;	
 	if(h == NULL)
 	{
 		printf("List Empty\n");
@@ -52,14 +50,16 @@ void search(struct node *h)
 	{
 		if(new == NULL)
 		{
-			printf("\nThe search element is not found in the List\n");
+			if(flag == 0){
+				printf("\nThe search element is not found in the List\n");
+			}
 			return;
 			
 		}
 		if(new->data == key)
 		{
+			flag = 1;
 			printf("\n%d is present at position %d from the head of the node\n",key,count);
-			return;
 		}
 		new = new->next;
 		count++;
