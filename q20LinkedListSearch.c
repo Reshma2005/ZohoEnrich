@@ -46,6 +46,7 @@ void search(struct node *h)
 	printf("Enter the element to be searched:");
 	scanf("%d",&key);
 	new = h;
+	
 	while(1)
 	{
 		if(new == NULL)
@@ -71,12 +72,14 @@ int main()
 {
 	struct node *head = NULL;
 	int ch;
+	
    while(1)    {
       printf("\n1.Append");
       printf("\n2.Search for a node");
       printf("\n3.Exit program");
       printf("\n\n\tEnter your choice : ");
       scanf("%d",&ch);
+	   
       switch(ch)     {
           case 1:append(&head);break;
           case 2:search(head);break;
