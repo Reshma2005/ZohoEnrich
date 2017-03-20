@@ -56,6 +56,7 @@ int main()
 	if(max1 == max2)//if there is one only one even number or all the even numbers are same
 	{
 		printf("There is no second largest even number\n");
+		return 0;
 	}
 	
 	printf("The second largest even number is: %d\n",max2);
