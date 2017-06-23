@@ -1,0 +1,93 @@
+<html>
+<body>
+	<script>
+		var firstNumber=0;
+		var secondNumber=0;
+		var first="";
+		var second="";
+		var flag=0;
+	</script>
+	
+	<table>
+		
+		<tr><td colspan="4"><input type="textfield" id="display" value=""></input></td></tr>
+		<tr>
+			<td><input type="button" name="one" value="1" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="two" value="2" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="three" value="3" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="add" value="+" onclick="toDo(this)"></input></td>
+		</tr>
+		<tr>
+			<td><input type="button" name="four" value="4" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="five" value="5" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="six" value="6" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="subtract" value="-" onclick="toDo(this)"></input></td>
+		</tr>
+		<tr>
+			<td><input type="button" name="seven" value="7" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="eight" value="8" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="nine" value="9" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="multiply" value="*" onclick="toDo(this)"></input></td>
+		</tr>
+		<tr>
+			<td><input type="button" name="zero" value="0" onclick="toDo(this)"></input></td>
+			<td><input type="button" name="point" value="." onclick="toDo(this)"></input></td>
+			<td><input type="button" name="equals" value="=" onclick="equals()"></input>
+			<td><input type="button" name="divide" value="/" onclick="toDo(this)"></input>
+		</tr>
+		<tr>
+		<td align="center"><input type="button" name="reset" value="AC"  onclick=reset()></input></td>
+		</tr>
+	</table>
+	<div id="exp" style="display:none"></div>
+<script>
+function toDo(btnObj)
+{
+
+	document.getElementById("exp").innerHTML+=btnObj.value;
+	if(btnObj.value==="+" ||btnObj.value==="-" || btnObj.value==="*" || btnObj.value==="/")
+	{
+		flag=1;
+		document.getElementById("display").value=firstNumber;
+		return;
+		
+	}
+	if(flag==0)
+	{
+		first+=btnObj.value;
+		firstNumber=Number(first);
+		document.getElementById("display").value=firstNumber;
+	}
+	else
+	{
+		second+=btnObj.value;
+		secondNumber=Number(second);
+		document.getElementById("display").value=secondNumber;
+	}
+}
+function equals()
+{
+	document.getElementById("display").value=eval(document.getElementById("exp").innerHTML);
+	firstNumber=Number(document.getElementById("display").value);
+	secondNumber=0;
+	first=document.getElementById("display").value;
+	second="";
+	flag=0;
+	document.getElementById("exp").innerHTML=eval(document.getElementById("exp").innerHTML);
+}
+function reset()
+{
+	firstNumber=0;
+	secondNumber=0;
+	first="";
+	second="";
+	flag=0;
+	document.getElementById("display").value="";
+	document.getElementById("exp").innerHTML="";
+}
+</script>
+	
+</body>
+</html>
+	
+			
