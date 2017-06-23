@@ -1,0 +1,53 @@
+<html>
+<script>
+	function Node(d)
+	{
+		this.data = d;
+		this.next=null;
+	}
+	function Queue()
+	{
+		this.front=null;
+		this.rear=null;
+		
+		this.enqueue=function(d)
+		{
+			var node = new Node(d)
+			if(!this.front)
+			{
+				this.front = node;
+				this.rear = node;
+				
+			}
+			else
+			{
+				this.rear.next = node;
+				this.rear = node;
+			}
+		}
+		
+		this.dequeue = function()
+		{
+			if(!this.front)
+			{
+				return "Empty Queue";
+			}
+			var temp = this.front;
+			this.front = this.front.next;
+			return temp.data;
+		}
+		
+		
+	}
+	
+	queue = new Queue();
+	//queue.enqueue(1);
+	//queue.enqueue(2);
+	//queue.enqueue(3);
+	//alert(queue.dequeue());
+	//alert(queue.dequeue());
+	alert(queue.dequeue());
+	
+	
+</script>
+</html>

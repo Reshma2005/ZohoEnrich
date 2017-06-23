@@ -1,0 +1,97 @@
+<html>
+<body>
+<script>
+function myFunction()
+	{
+		var obj ={};
+		tabSpace="&nbsp&nbsp&nbsp&nbsp";
+		var objElement={'a':'b'};
+		var o={'c':'reshma','b':'sakshi'}
+		var arr=[1,2,3]
+		obj['a']='b';
+		obj['b']=arr;
+		obj['c']=0;
+		obj['e']=objElement;
+		obj['g']=o;
+		obj['d']=true
+		
+		var txt=myToString(obj,tabSpace);
+		document.getElementById("demo").innerHTML=txt;
+		
+	}
+</script>
+	<input type="button" id="button" value="Click" onclick=myFunction()></input>
+	<div id="demo"></div>
+<script>
+	
+	function myToString(obj,tabSpace)
+	{
+		tab="&nbsp&nbsp&nbsp&nbsp";
+		var sep="";
+		var txt="{<br>";
+		var valueType="";
+		
+		for(key in obj)
+		{
+			txt+=tabSpace+"'"+key+"':";
+			valueType=typeof(obj[key])
+			switch(valueType)
+			{
+				case "number":
+					txt+=obj[key];
+					break;
+					
+				case "string":
+					txt+="'"+obj[key]+"'";
+					break;
+					
+				case "boolean":
+					txt+=obj[key];
+					break;
+					
+				case "object":
+					var arr=Array.isArray(obj[key])
+					var arString="";
+					tabSpace=tabSpace+tab;
+					if(arr)
+					{
+						arString=obj[key].toString()
+						txt+="[";
+						for(i=0;i<obj[key].length;i++)
+						{
+							txt+=tabSpace+obj[key][i]+"<br>";
+						}
+						var tL=tabSpace.length;
+						tabSpace=tabSpace.slice(0,tL-20);
+						txt+=tabSpace+"]";
+					}
+					else
+					{
+						
+						txt+=myToString(obj[key],tabSpace);
+						var tL=tabSpace.length;
+						tabSpace=tabSpace.slice(0,tL-20);
+			
+					}
+					
+				
+				
+			}
+			sep=",";
+			txt+="<br>";
+			
+			
+		}
+		var ttL=tabSpace.length;
+		tabSpace=tabSpace.slice(0,ttL-20);
+		txt+=tabSpace;
+		
+		
+		txt+="}";
+		
+		return txt;
+	}
+</script>
+
+</body>
+</html>
