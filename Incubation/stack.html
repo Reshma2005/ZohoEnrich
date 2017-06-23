@@ -1,0 +1,50 @@
+<html>
+<body>
+
+<script>
+	top = {};
+	function Node(d)
+	{
+		this.data = d;
+		this.next = null;
+		
+	}
+		
+	function Stack()
+	{
+		this.top=null;
+		
+		
+		this.push=function(d)
+		{
+			var node = new Node(d);
+			node.next = this.top;
+			this.top = node;
+		}
+		this.pop=function()
+		{
+			if(!this.top)
+			{
+				return "Empty Stack";
+			}
+			var temp = this.top;
+			this.top=this.top.next;
+			return temp.data;
+		}
+		
+		
+	}
+	
+	
+	stack=new Stack();
+	stack.push(1);
+	stack.push(2);
+	stack.push(3);
+	alert(stack.pop());
+	alert(stack.pop());
+	alert(stack.pop());
+	alert(stack.pop());
+	
+	
+	
+</script>
